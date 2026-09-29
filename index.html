@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Husam Ammar (Loops) — AI Software Engineer & Full-Stack Tech Lead, Baghdad.">
+<title>Husam Ammar — AI Software Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#03060e; --deep:#0b1a33; --streak:#2d9fde; --glow:#53b6e3; --tip:#acdbec; --ink:#e6f1fb; --mute:#8fa9c4; --line:rgba(83,182,227,.22);
+  --sans:'IBM Plex Sans Arabic',system-ui,-apple-system,'Segoe UI',Tahoma,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:dark;
+}
+:root:not([data-theme="light"]){} :root[data-theme="dark"]{}
+*,*::before,*::after{box-sizing:inherit;margin:0;padding:0}
+html{scroll-padding-top:env(safe-area-inset-top,0px);background:var(--void)}
+body{background:var(--void);color:var(--ink);font-family:var(--sans);font-size:1rem;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+#warp{position:fixed;inset:0;width:100%;height:100%;z-index:0;display:block;object-fit:cover;image-rendering:pixelated}
+.scan{position:fixed;inset:0;z-index:1;pointer-events:none;background:repeating-linear-gradient(to bottom,rgba(0,0,0,.18) 0 1px,transparent 1px 3px)}
+.vignette{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse at center,transparent 35%,rgba(3,6,14,.75) 100%)}
+main{position:relative;z-index:2}
+.toggle{position:fixed;top:calc(env(safe-area-inset-top,0px) + 16px);inset-inline-end:16px;z-index:5;font:500 .9rem var(--sans);color:var(--ink);background:rgba(3,6,14,.6);border:1px solid var(--line);padding:.45rem .9rem;border-radius:4px;cursor:pointer;backdrop-filter:blur(6px)}
+.toggle:hover{border-color:var(--glow)} .toggle:focus-visible,a:focus-visible{outline:2px solid var(--tip);outline-offset:3px}
+
+/* hero */
+.hero{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:6rem clamp(1.25rem,6vw,6rem) 4rem;max-width:1100px}
+.prompt{font-family:var(--mono);color:var(--glow);font-size:clamp(1rem,2.2vw,1.25rem);direction:ltr;unicode-bidi:isolate;display:inline-block;margin-bottom:.5rem}
+h1{font-size:clamp(2.8rem,9vw,6.5rem);font-weight:700;line-height:1;letter-spacing:-.02em;min-height:1em}
+[dir=rtl] h1{letter-spacing:0}
+.cursor{display:inline-block;width:.08em;height:.85em;background:var(--glow);margin-inline-start:.08em;vertical-align:-.05em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.role{margin-top:1.1rem;font-size:clamp(1.05rem,2.4vw,1.45rem);color:var(--tip);font-weight:500}
+.summary{margin-top:1.1rem;max-width:62ch;color:var(--mute);font-size:1.02rem}
+.contact{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2rem}
+.contact a,.contact span{font-family:var(--mono);font-size:.88rem;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:rgba(11,26,51,.55);padding:.45rem .8rem;border-radius:4px;direction:ltr;unicode-bidi:isolate}
+.contact a:hover{border-color:var(--glow);color:var(--tip)}
+.contact .loc{font-family:var(--sans)}
+.hint{margin-top:3.5rem;font-family:var(--mono);font-size:.8rem;color:var(--mute);opacity:.7}
+
+/* body sections */
+.sheet{background:linear-gradient(to bottom,rgba(3,6,14,0),rgba(3,6,14,.88) 6rem);padding:4rem clamp(1.25rem,6vw,6rem) 5rem}
+.wrap{max-width:1100px}
+section{margin-top:4.5rem} section:first-child{margin-top:0}
+h2{font-size:1.5rem;font-weight:600;color:var(--ink);margin-bottom:1.5rem;display:flex;align-items:center;gap:.8rem}
+h2::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--streak),transparent)}
+[dir=rtl] h2::after{background:linear-gradient(270deg,var(--streak),transparent)}
+.value{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.value div{background:rgba(3,6,14,.92);padding:1.2rem 1.25rem}
+.value b{display:block;color:var(--tip);font-weight:600;margin-bottom:.3rem}
+.value p{color:var(--mute);font-size:.95rem}
+.item{display:grid;grid-template-columns:minmax(0,1fr);padding:1.6rem 0;border-top:1px solid var(--line)}
+.item:last-child{border-bottom:1px solid var(--line)}
+.item-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:.4rem 1rem}
+.item h3{font-size:1.3rem;font-weight:600}
+.item h3 a{color:inherit;text-decoration:none;border-bottom:1px solid var(--streak)} .item h3 a:hover{color:var(--tip)}
+.meta{font-family:var(--mono);font-size:.82rem;color:var(--glow)}
+.sub{color:var(--tip);opacity:.85;margin:.25rem 0 .7rem;font-size:.98rem}
+.item ul{list-style:none;display:grid;gap:.45rem;max-width:75ch}
+.item li{position:relative;padding-inline-start:1.2rem;color:#c3d4e6;font-size:.98rem}
+.item li::before{content:"";position:absolute;inset-inline-start:0;top:.72em;width:.55rem;height:2px;background:var(--glow)}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.6rem 2rem}
+.skills h4{font-size:.95rem;color:var(--tip);font-weight:600;margin-bottom:.6rem}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.tags span{font-family:var(--mono);font-size:.82rem;border:1px solid var(--line);padding:.25rem .6rem;border-radius:3px;background:rgba(45,159,222,.08);unicode-bidi:isolate}
+.duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem}
+.duo p,.duo li{color:#c3d4e6} .duo ul{list-style:none} .duo strong{color:var(--ink);font-weight:600;display:block}
+.loop{margin-top:5rem;font-family:var(--mono);font-size:.95rem;line-height:1.7;color:var(--tip);direction:ltr;text-align:left;white-space:pre;overflow-x:auto;border-inline-start:2px solid var(--streak);padding-inline-start:1.2rem}
+[dir=rtl] .loop{border-inline-start:none;border-left:2px solid var(--streak);padding-left:1.2rem;padding-right:0}
+.loop .c{color:var(--mute)} .loop .k{color:var(--glow)}
+.cta{margin-top:3rem;display:flex;flex-wrap:wrap;gap:.8rem}
+.cta a{font-weight:600;color:var(--void);background:var(--glow);padding:.75rem 1.3rem;border-radius:4px;text-decoration:none}
+.cta a.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.cta a:hover{background:var(--tip)} .cta a.ghost:hover{background:rgba(83,182,227,.12)}
+@media (max-width:600px){.hero{padding-top:5rem}.sheet{padding-top:2.5rem}}
+@media (prefers-reduced-motion:reduce){.cursor{animation:none}}
+@media print{#warp,.scan,.vignette,.toggle,.hint{display:none}body{background:#fff;color:#000}}
+</style>
+</head>
+<body>
+<img id="warp" src="bg.gif" alt="" aria-hidden="true"><div class="scan"></div><div class="vignette"></div>
+<button class="toggle" id="toggle" type="button"></button>
+<main>
+  <header class="hero">
+    <span class="prompt">&gt;_ loops@sirius:~$ whoami</span>
+    <h1><span id="name"></span><span class="cursor" aria-hidden="true"></span></h1>
+    <p class="role" id="role"></p>
+    <p class="summary" id="summary"></p>
+    <div class="contact" id="contact"></div>
+    <p class="hint" id="hint"></p>
+  </header>
+  <div class="sheet"><div class="wrap" id="content"></div></div>
+</main>
+<script>
+const DATA = {"en": {"dir": "ltr", "lang": "en", "name": "Husam Ammar", "role": "AI Software Engineer · Full-Stack Tech Lead", "summary": "AI Software Engineer who architects, builds and ships production-grade platforms end-to-end — from system architecture and security to cloud deployment. Hands-on across real-time generative video AI, autonomous LLM agents and scalable full-stack systems, with a proven record of taking products from zero to production. Ready to lead the AI side of a modern marketing & production house.", "h_contact": "Contact", "contact": ["Baghdad, Iraq", "07740309480", "husam8770@gmail.com", "sticktongue.com"], "h_skills": "Technical Skills", "skills": [["Programming", ["TypeScript", "Python", "C++", "Rust", "SQL", "JavaScript"]], ["Frontend", ["React", "Vite", "HTML/CSS"]], ["Backend", ["Node.js", "Express", "FastAPI", "PostgreSQL", "WebSockets", "REST APIs"]], ["AI", ["Claude Code", "LLM integration", "Generative video", "AI agents", "llama.cpp", "NVIDIA NIM", "MCP"]], ["Cloud & Tools", ["Google Cloud GPUs", "Railway", "Netlify", "Cloudflare R2", "Linux / WSL2", "Git"]]], "h_edu": "Education", "edu": ["Secondary School Diploma", "Distinguished Schools track — Diyala, 2026"], "h_lang": "Languages", "langs": ["Arabic — Native", "English — Good working proficiency"], "h_value": "What I Bring to Your Team", "value": [["AI-Powered Ad Production", "generative video, virtual try-on & AI product visuals at scale"], ["High-Converting Web", "campaign landing pages & microsites, shipped fast"], ["Workflow Automation", "custom AI agents & dashboards that cut production time"], ["Interactive Campaigns", "immersive web experiences that drive engagement"]], "h_exp": "Leadership", "exp": [["Sirius Research Team", "Founder · 2026 – Present", "Independent AI research & engineering team", ["Founded and lead an AI R&D team building generative-AI and agentic systems, co-founded with an AI tech lead working in the UAE market.", "Runs an AI-accelerated engineering workflow (Claude Code) to prototype and ship products at high speed."]], ["Stick Tongue — sticktongue.com", "Sirius product · Live", "AI study platform for Iraqi medicine, pharmacy & dentistry students", ["Co-built a live AI study platform (12,000+ free exam-style questions, 4,000+ topics): students upload lectures and get summaries, mind maps, flashcards and exam questions in about a minute.", "Worked on the AI engine: a RAG tutor that answers from the student's own lectures and cites the exact page, parsing text, tables and figures from slides and PDFs.", "Building the Stick Tongue browser extension (in progress)."]]], "h_proj": "Projects", "projects": [["Live AI Virtual Try-On", "Team project · 2026", "Real-time generative video AI for fashion & retail brands", ["Engineering a real-time AI try-on system that renders garments onto users live via webcam.", "Benchmarking and deploying state-of-the-art generative video models (JoyAI-Video-Edit) on Google Cloud GPU infrastructure."]], ["MediCore", "Founder & Lead Engineer", "Production healthcare SaaS for Iraqi clinics", ["Architected and delivered the entire platform end-to-end: React/TypeScript/Vite frontend (Netlify) + Node.js/Express/PostgreSQL backend (Railway).", "Real-time chat and notifications over WebSockets; medical image uploads with Cloudflare R2.", "Led a production security hardening program: JWT revocation, CSRF protection, single-use WebSocket tickets, zero-trust middleware.", "Re-architected a monolith into a modular service layer with versioned DB migrations and code-split UI for performance."]], ["Well Jarvis", "Independent project", "Autonomous AI agent platform — FastAPI + React", ["Engineered GPU-accelerated on-device LLM inference (llama.cpp, NVIDIA NIM) and a self-healing agent runtime with voice, long-term memory and MCP tool orchestration."]]], "h_cta": "Get in touch", "toggle": "عربي", "scroll": "scroll", "email_label": "Email me", "call_label": "Call"}, "ar": {"dir": "rtl", "lang": "ar", "name": "حسام عمار", "role": "مهندس برمجيات ذكاء اصطناعي · قائد تقني Full-Stack", "summary": "مهندس برمجيات ذكاء اصطناعي أصمّم وأبني وأُطلق منصات بمستوى إنتاجي كامل، من هندسة النظام والأمان حتى النشر السحابي. خبرة عملية في الفيديو التوليدي بالوقت الحقيقي، ووكلاء الذكاء الاصطناعي المستقلين، والأنظمة القابلة للتوسّع، مع سجل مثبت في نقل المنتجات من الفكرة إلى الإطلاق. مستعد لقيادة الجانب التقني والذكاء الاصطناعي في شركة تسويق وإنتاج حديثة.", "h_contact": "معلومات التواصل", "contact": ["بغداد، العراق", "07740309480", "husam8770@gmail.com", "sticktongue.com"], "h_skills": "المهارات التقنية", "skills": [["لغات البرمجة", ["TypeScript", "Python", "C++", "Rust", "SQL", "JavaScript"]], ["الواجهات الأمامية", ["React", "Vite", "HTML/CSS"]], ["الخوادم وقواعد البيانات", ["Node.js", "Express", "FastAPI", "PostgreSQL", "WebSockets", "REST APIs"]], ["الذكاء الاصطناعي", ["Claude Code", "دمج نماذج LLM", "الفيديو التوليدي", "وكلاء AI", "llama.cpp", "NVIDIA NIM", "MCP"]], ["السحابة والأدوات", ["Google Cloud GPUs", "Railway", "Netlify", "Cloudflare R2", "Linux / WSL2", "Git"]]], "h_edu": "التعليم", "edu": ["شهادة الدراسة الإعدادية", "قناة مدارس المتميزين — ديالى، 2026"], "h_lang": "اللغات", "langs": ["العربية — اللغة الأم", "الإنجليزية — مستوى عمل جيد"], "h_value": "القيمة التي أضيفها", "value": [["إنتاج إعلاني بالذكاء الاصطناعي", "فيديو توليدي وتجربة ملابس افتراضية ومحتوى منتجات على نطاق واسع"], ["ويب عالي التحويل", "صفحات هبوط ومواقع حملات تُنجَز بسرعة"], ["أتمتة سير العمل", "وكلاء AI ولوحات تحكم تختصر وقت الإنتاج"], ["حملات تفاعلية", "تجارب ويب غامرة ترفع التفاعل"]], "h_exp": "القيادة", "exp": [["Sirius Research Team", "المؤسس · 2026 – الآن", "فريق مستقل لأبحاث وهندسة الذكاء الاصطناعي", ["أسّست وأقود فريق بحث وتطوير يبني أنظمة ذكاء اصطناعي توليدية ووكلاء أذكياء، بالشراكة مع قائد تقني للذكاء الاصطناعي يعمل في السوق الإماراتي.", "إدارة سير عمل هندسي مُسرَّع بالذكاء الاصطناعي (Claude Code) لبناء النماذج الأولية وإطلاق المنتجات بسرعة عالية."]], ["Stick Tongue — sticktongue.com", "منتج Sirius · يعمل حالياً", "منصة دراسة بالذكاء الاصطناعي لطلاب الطب والصيدلة وطب الأسنان في العراق", ["شاركت في بناء منصة دراسة ذكية تعمل حالياً (أكثر من 12,000 سؤال امتحاني مجاني عبر 4,000+ موضوع): يرفع الطالب محاضراته فيحصل على ملخصات وخرائط ذهنية وبطاقات مراجعة وأسئلة امتحانية خلال دقيقة تقريباً.", "عملت على محرّك الذكاء الاصطناعي: مدرّس ذكي (RAG) يجيب من محاضرات الطالب نفسها ويذكر الصفحة بالضبط، مع قراءة النصوص والجداول والأشكال من الشرائح وملفات PDF.", "أعمل حالياً على بناء إضافة المتصفح (Browser Extension) الخاصة بالمنصة."]]], "h_proj": "المشاريع", "projects": [["تجربة الملابس الافتراضية المباشرة بالـ AI", "مشروع فريق · 2026", "ذكاء اصطناعي للفيديو التوليدي المباشر لعلامات الأزياء والتجزئة", ["هندسة نظام تجربة ملابس بالذكاء الاصطناعي يعرض الملابس على المستخدم مباشرة عبر الكاميرا.", "اختبار ونشر أحدث نماذج الفيديو التوليدية (JoyAI-Video-Edit) على بنية Google Cloud GPU."]], ["MediCore", "المؤسس والمهندس الرئيسي", "منصة SaaS صحية بمستوى إنتاجي للعيادات العراقية", ["هندست وسلّمت المنصة بالكامل من الألف إلى الياء: واجهة React/TypeScript/Vite على Netlify، وخادم Node.js/Express/PostgreSQL على Railway.", "دردشة وإشعارات فورية عبر WebSockets، ورفع الصور الطبية باستخدام Cloudflare R2.", "قُدت برنامج تحصين أمني للإنتاج: إلغاء رموز JWT، حماية CSRF، تذاكر WebSocket لمرة واحدة، وطبقة Zero-Trust.", "أعدت هندسة النظام من كتلة واحدة إلى طبقة خدمات معيارية، مع ترحيلات قاعدة بيانات مُرقّمة وتقسيم للواجهات لرفع الأداء."]], ["Well Jarvis", "مشروع مستقل", "منصة وكلاء ذكاء اصطناعي مستقلين — FastAPI + React", ["هندسة تشغيل نماذج لغوية محلية مُسرَّعة بالـ GPU باستخدام llama.cpp و NVIDIA NIM، وبيئة وكلاء ذاتية الإصلاح مع الصوت والذاكرة طويلة المدى وتنسيق أدوات MCP."]]], "h_cta": "تواصل معي", "toggle": "English", "scroll": "مرّر", "email_label": "راسلني", "call_label": "اتصل"}};
+const EMAIL="husam8770@gmail.com", PHONE="07740309480";
+let lang = "en";
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const hasAr = s => /[\u0600-\u06FF]/.test(s);
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let typeTimer;
+
+function typeName(text){
+  clearTimeout(typeTimer); const el=$("name");
+  if(reduce){ el.textContent=text; return; }
+  el.textContent=""; let i=0;
+  const step=()=>{ el.textContent=text.slice(0,++i); if(i<text.length) typeTimer=setTimeout(step,70+Math.random()*60); };
+  typeTimer=setTimeout(step,350);
+}
+function entry([n,m,sub,bullets]){
+  const link = n.includes("sticktongue.com") ? n.replace("sticktongue.com",'<a href="https://www.sticktongue.com" target="_blank" rel="noopener">sticktongue.com</a>') : esc(n);
+  return `<article class="item"><div class="item-head"><h3>${n.includes("sticktongue.com")?link:esc(n)}</h3><span class="meta">${esc(m)}</span></div>
+    <p class="sub">${esc(sub)}</p><ul>${bullets.map(b=>`<li>${esc(b)}</li>`).join("")}</ul></article>`;
+}
+function render(){
+  const d=DATA[lang];
+  document.documentElement.lang=d.lang; document.documentElement.dir=d.dir;
+  document.title = (lang==="en"?"Husam Ammar":"حسام عمار")+" — "+(lang==="en"?"AI Software Engineer":"مهندس برمجيات ذكاء اصطناعي");
+  $("toggle").textContent=d.toggle;
+  typeName(d.name); $("role").textContent=d.role; $("summary").textContent=d.summary;
+  $("contact").innerHTML=`<span class="loc">${esc(d.contact[0])}</span>
+    <a href="tel:${PHONE}">${PHONE}</a><a href="mailto:${EMAIL}">${EMAIL}</a>
+    <a href="https://www.sticktongue.com" target="_blank" rel="noopener">sticktongue.com</a>`;
+  $("hint").textContent = "↓ " + d.scroll;
+  $("content").innerHTML = `
+    <section><h2>${esc(d.h_value)}</h2><div class="value">${d.value.map(([a,b])=>`<div><b>${esc(a)}</b><p>${esc(b)}</p></div>`).join("")}</div></section>
+    <section><h2>${esc(d.h_exp)}</h2>${d.exp.map(entry).join("")}</section>
+    <section><h2>${esc(d.h_proj)}</h2>${d.projects.map(entry).join("")}</section>
+    <section><h2>${esc(d.h_skills)}</h2><div class="skills">${d.skills.map(([g,ts])=>`<div><h4>${esc(g)}</h4><div class="tags">${ts.map(t=>`<span dir="${hasAr(t)?'rtl':'ltr'}">${esc(t)}</span>`).join("")}</div></div>`).join("")}</div></section>
+    <section class="duo">
+      <div><h2>${esc(d.h_edu)}</h2><p><strong>${esc(d.edu[0])}</strong>${esc(d.edu[1])}</p></div>
+      <div><h2>${esc(d.h_lang)}</h2><ul>${d.langs.map(l=>`<li>${esc(l)}</li>`).join("")}</ul></div>
+    </section>
+    <pre class="loop"><span class="c">// time is infinite</span>
+<span class="k">while</span> (time &lt; ∞) {
+  learn();
+  build();
+  ship();
+}</pre>
+    <div class="cta"><a href="mailto:${EMAIL}">${esc(d.email_label)}</a><a class="ghost" href="tel:${PHONE}">${esc(d.call_label)} ${PHONE}</a></div>`;
+}
+$("toggle").addEventListener("click",()=>{ lang = lang==="en"?"ar":"en"; try{localStorage.setItem("cv-lang",lang)}catch(e){} render(); });
+try{ const saved=localStorage.getItem("cv-lang"); if(saved==="ar"||saved==="en") lang=saved; }catch(e){}
+render();
+
+
+</script>
+</body>
+</html>
